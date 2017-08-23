@@ -33,7 +33,7 @@ namespace Learn_ABP.Migrations
             {
                 //You can add seed for tenant databases and use Tenant property...
             }
-
+            new DefaultTestDataForTask(context).Create();
             context.SaveChanges();
         }
     }

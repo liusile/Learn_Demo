@@ -3,13 +3,15 @@ using Abp.Zero.EntityFramework;
 using Learn_ABP.Authorization.Roles;
 using Learn_ABP.Authorization.Users;
 using Learn_ABP.MultiTenancy;
+using System.Data.Entity;
+using Learn_ABP.Tasks;
 
 namespace Learn_ABP.EntityFramework
 {
     public class Learn_ABPDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         //TODO: Define an IDbSet for your Entities...
-
+        public IDbSet<Task> Tasks { get; set; }
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
          *   But it may cause problems when working Migrate.exe of EF. If you will apply migrations on command line, do not
