@@ -1,0 +1,23 @@
+﻿MiniPorfiler监控 步骤说明
+1.引用程序集：MiniProfiler 和 MiniProfiler.EF6
+2.web.config添加配置：
+　<system.webServer>
+    <handlers>
+      <add name="MiniProfiler" path="mini-profiler-resources/*" verb="*" type="System.Web.Routing.UrlRoutingModule" resourceType="Unspecified" preCondition="integratedMode" />
+    </handlers>
+  </system.webServer>
+3._Layout 添加界面显示：
+		@using StackExchange.Profiling;
+	    @MiniProfiler.RenderIncludes();
+4.      Global.asax添加启动项
+        protected void Application_BeginRequest()
+        {
+            if (Request.IsLocal)
+            {
+                MiniProfiler.Start();
+            }
+        }
+        protected void Application_EndRequest()
+        {
+            MiniProfiler.Stop();
+        }
