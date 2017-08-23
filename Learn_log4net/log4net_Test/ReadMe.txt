@@ -1,0 +1,2 @@
+﻿还原nuget包需要单独打开该子项目进行还原，不能打开总得项目还原
+比如：此log4net_Test项目还原nuget包时，需打开log4net_Test项目进行还原，不能打开learn_Demo项目还原
