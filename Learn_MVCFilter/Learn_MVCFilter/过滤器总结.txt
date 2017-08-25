@@ -1,0 +1,15 @@
+﻿使用方法：
+1.类特性
+2.方法特性
+3.全局添加
+
+过滤器接口：IAuthorizationFilter IExceptionFilter IActionFilter IResultFilter
+过滤器4种：ActionFilter HandleError Authorize
+
+1.ActionFilter
+   执行顺序：OnActionExecuting OnActionExecuted OnResultExecuting OnResultExecuted 
+2.HandleError
+	配置文件config 设置<customErrors mode="On">
+	约定异常跳转到~/shared/Error.cshtml 也可以修改这个约定：TestHandlerErrorFilter(View = "~/Views/Home/About.cshtml")
+	多个异常过滤器时，进行排序 order越大越优先处理
+	异常只处理服务器错误，处理其他错误需配置文件： <error redirect="~/Account/Login" statusCode="404" />

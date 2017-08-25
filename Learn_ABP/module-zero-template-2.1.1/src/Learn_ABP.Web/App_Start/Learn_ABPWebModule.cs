@@ -13,6 +13,7 @@ using Learn_ABP.Api;
 using Castle.MicroKernel.Registration;
 using Hangfire;
 using Microsoft.Owin.Security;
+using Learn_ABP.Web.App_Start;
 
 namespace Learn_ABP.Web
 {
@@ -29,7 +30,7 @@ namespace Learn_ABP.Web
         {
             //Enable database based localization
             Configuration.Modules.Zero().LanguageManagement.EnableDbLocalization();
-
+           
             //Configure navigation/menu
             Configuration.Navigation.Providers.Add<Learn_ABPNavigationProvider>();
 
@@ -42,8 +43,9 @@ namespace Learn_ABP.Web
 
         public override void Initialize()
         {
+           
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
-
+            Configuration.Modules.MyModule().SampleConfig2 = "abc";
             IocManager.IocContainer.Register(
                 Component
                     .For<IAuthenticationManager>()

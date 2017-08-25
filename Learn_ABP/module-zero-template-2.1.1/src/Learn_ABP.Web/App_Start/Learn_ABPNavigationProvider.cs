@@ -131,6 +131,14 @@ namespace Learn_ABP.Web
                             )
                         )
                     )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Home,
+                        L("HomePage"),
+                        url: "Tasks",
+                        icon: "home",
+                        requiresAuthentication: true
+                    )
                 );
         }
 

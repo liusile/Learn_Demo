@@ -2651,6 +2651,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\Learn_ABPNavigationProvider.cs" />
     <Compile Include="App_Start\Learn_ABPWebModule.cs" />
+    <Compile Include="App_Start\MyInstaller.cs" />
+    <Compile Include="App_Start\MyModuleConfig.cs" />
+    <Compile Include="App_Start\MyModuleConfigurationExtensions.cs" />
     <Compile Include="App_Start\PageNames.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
@@ -2659,6 +2662,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Controllers\TenantsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
@@ -2800,6 +2804,7 @@
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Roles\_EditRoleModal.cshtml" />
     <Content Include="Views\Tenants\_EditTenantModal.cshtml" />
+    <Content Include="Views\Tasks\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

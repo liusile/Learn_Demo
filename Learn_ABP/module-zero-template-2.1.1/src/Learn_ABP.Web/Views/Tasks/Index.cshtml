@@ -1,0 +1,14 @@
+﻿@using Learn_ABP.Tasks.Dto
+@model IList<TaskDto>
+@{
+    Layout = null;
+}
+@{
+    ViewBag.Title = "Index";
+}
+@foreach(var row in Model)
+{
+    <div>@row.Title</div>
+}
+
+

@@ -23,7 +23,6 @@ namespace Learn_ABP
             Configuration.Modules.Zero().EntityTypes.Tenant = typeof(Tenant);
             Configuration.Modules.Zero().EntityTypes.Role = typeof(Role);
             Configuration.Modules.Zero().EntityTypes.User = typeof(User);
-
             //Remove the following line to disable multi-tenancy.
             Configuration.MultiTenancy.IsEnabled = Learn_ABPConsts.MultiTenancyEnabled;
 

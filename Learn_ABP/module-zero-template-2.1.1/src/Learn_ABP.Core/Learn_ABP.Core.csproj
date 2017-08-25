@@ -111,6 +111,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Localization\IRepositories\IBackendTaskRepository.cs" />
     <Compile Include="Learn_ABPConsts.cs" />
     <Compile Include="Learn_ABPCoreModule.cs" />
     <Compile Include="AppVersionHelper.cs" />
@@ -170,6 +171,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Localization\Source\Learn_ABP-vi.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

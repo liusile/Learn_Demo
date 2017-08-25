@@ -25,7 +25,7 @@ namespace Learn_ABP.Migrations.SeedData
                 new ApplicationLanguage(null, "ja", "日本語", "famfamfam-flags jp"),
                 new ApplicationLanguage(null, "nl-NL", "Nederlands", "famfamfam-flags nl"),
                 new ApplicationLanguage(null, "lt", "Lietuvos", "famfamfam-flags lt"),
-                new ApplicationLanguage(null, "vn", "Vietnamese", "famfamfam-flags vn")
+             //   new ApplicationLanguage(null, "vn", "Vietnamese", "famfamfam-flags vn")
             };
         }
 
