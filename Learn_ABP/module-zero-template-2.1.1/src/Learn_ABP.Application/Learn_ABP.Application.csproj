@@ -146,6 +146,9 @@
     <Compile Include="Tasks\Dto\CreateTaskInput.cs" />
     <Compile Include="Tasks\Dto\GetTasksInput.cs" />
     <Compile Include="Tasks\Dto\GetTasksOutput.cs" />
+    <Compile Include="Tasks\Dto\ITaskCache.cs" />
+    <Compile Include="Tasks\Dto\TaskCache.cs" />
+    <Compile Include="Tasks\Dto\TaskCacheItem.cs" />
     <Compile Include="Tasks\Dto\TaskDto.cs" />
     <Compile Include="Tasks\Dto\UpdateTaskInput.cs" />
     <Compile Include="Tasks\ITaskAppService.cs" />
