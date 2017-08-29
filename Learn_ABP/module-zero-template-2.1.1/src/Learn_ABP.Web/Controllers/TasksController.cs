@@ -1,5 +1,6 @@
 ﻿using Abp.Application.Services;
 using Abp.Dependency;
+using Abp.Events.Bus;
 using Abp.Runtime.Caching;
 using Abp.Runtime.Session;
 using Abp.Web.Mvc.Controllers;
@@ -22,20 +23,23 @@ namespace Learn_ABP.Web.Controllers
         private readonly IUserAppService _userAppService;
         private readonly IIocManager _iocManager;
         private readonly ICacheManager _cacheManager;
+        private readonly IEventBus _eventBus;
         public ILogger Logger { get; set; }
-        public TasksController(IIocManager iocManager, ITaskAppService taskAppService, IUserAppService userAppService, ICacheManager iCacheManager)
+        public TasksController(IIocManager iocManager, ITaskAppService taskAppService, IUserAppService userAppService, ICacheManager iCacheManager, IEventBus eventBus)
         {
             _taskAppService = taskAppService;
             _userAppService = userAppService;
             _iocManager = iocManager;
             _cacheManager = iCacheManager;
             Logger = NullLogger.Instance;
+            _eventBus = eventBus;
         }
 
         // GET: Tasks
         public ActionResult Index()
         {
-            Logger.Debug("这是我做得日志记录呀");
+           // _eventBus.Trigger(new Tasks.TaskEventData("1"));
+            EventBus.Trigger(new Tasks.TaskEventData("1"));
             // var data = _cacheManager.GetCache<string, IList<TaskDto>>("ControllerCache").Get("Index", () => _taskAppService.GetAllTasks());
             var data = _taskAppService.GetAllTasks();
             return View(data);
@@ -46,7 +50,7 @@ namespace Learn_ABP.Web.Controllers
             _taskAppService.UpdateTask(new UpdateTaskInput
             {
                 Id = 1,
-                Title = "title3",
+                Title = "title4",
                 Description = "Descri",
                 State = TaskState.Completed
             });
