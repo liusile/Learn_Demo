@@ -14,10 +14,12 @@ namespace Learn_ABP.Tasks
     public class TaskAppService : Learn_ABPAppServiceBase, ITaskAppService
     {
         private readonly IRepository<Task> _taskRepository;
+        private readonly ITaskCache _taskCache;
 
-        public TaskAppService(IRepository<Task> taskRepository)
+        public TaskAppService(IRepository<Task> taskRepository,ITaskCache taskCache)
         {
             _taskRepository = taskRepository;
+            _taskCache = taskCache;
         }
         public GetTasksOutput GetTasks(GetTasksInput input)
         {
@@ -49,11 +51,15 @@ namespace Learn_ABP.Tasks
             return task.MapTo<TaskDto>();
         }
 
-        public TaskDto GetTaskById(int taskId)
+        public TaskDto GetTaskById(int Id)
         {
-            var task = _taskRepository.Get(taskId);
+            string title =_taskCache.Get(Id).Title;
+            return new TaskDto {
+                Title=title
+            };
+            //var task = _taskRepository.Get(taskId);
 
-            return task.MapTo<TaskDto>();
+            //return task.MapTo<TaskDto>();
         }
 
         public void UpdateTask(UpdateTaskInput input)
@@ -70,7 +76,14 @@ namespace Learn_ABP.Tasks
             {
                 task.State = input.State.Value;
             }
-
+            if (!string.IsNullOrWhiteSpace(input.Title))
+            {
+                task.Title = input.Title;
+            }
+            if (!string.IsNullOrWhiteSpace(input.Description))
+            {
+                task.Description = input.Description;
+            }
             //We even do not call Update method of the repository.
             //Because an application service method is a 'unit of work' scope as default.
             //ABP automatically saves all changes when a 'unit of work' scope ends (without any exception).
@@ -105,6 +118,7 @@ namespace Learn_ABP.Tasks
 
         public IList<TaskDto> GetAllTasks()
         {
+
             var query = _taskRepository.GetAll();
             return Mapper.Map<List<TaskDto>>(query.ToList());
         }

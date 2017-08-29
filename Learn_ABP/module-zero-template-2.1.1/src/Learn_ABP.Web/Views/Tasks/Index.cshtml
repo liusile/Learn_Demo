@@ -10,5 +10,16 @@
 {
     <div>@row.Title</div>
 }
+@Html.ActionLink("update", "Update")
+@Html.ActionLink("GetTask", "GetTask")
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>缓存Title>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+@TempData["Title"]
+<input type="button" value="rizhi" onclick="aa()" />
+<script type="text/javascript">
+    function aa() {
+        abp.log.debug("这是客户端得日志记录呀");
+    }
+    
+</script>
 
 

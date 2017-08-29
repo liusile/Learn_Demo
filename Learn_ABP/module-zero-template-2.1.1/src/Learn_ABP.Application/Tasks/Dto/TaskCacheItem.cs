@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Learn_ABP.Tasks.Dto
 {
     [AutoMapFrom(typeof(Task))]
-    public class TaskCacheItem
+     public class TaskCacheItem
     {
         public string Title { get; set; }
 
