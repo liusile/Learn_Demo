@@ -33,6 +33,7 @@ namespace Learn_ABP.Web
             //{
             //    Authorization = new[] { new AbpHangfireAuthorizationFilter() } //You can remove this line to disable authorization
             //});
+            
         }
     }
 }

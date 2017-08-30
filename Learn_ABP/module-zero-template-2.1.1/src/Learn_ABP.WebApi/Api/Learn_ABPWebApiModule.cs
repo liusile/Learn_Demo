@@ -4,6 +4,8 @@ using Abp.Application.Services;
 using Abp.Configuration.Startup;
 using Abp.Modules;
 using Abp.WebApi;
+using Swashbuckle.Application;
+using System.Linq;
 
 namespace Learn_ABP.Api
 {
@@ -19,6 +21,18 @@ namespace Learn_ABP.Api
                 .Build();
 
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
+            ConfigureSwaggerUI();
+        }
+        public void ConfigureSwaggerUI()
+        {
+            Configuration.Modules.AbpWebApi().HttpConfiguration
+                .EnableSwagger(c =>
+                {
+                    c.SingleApiVersion("v1", "DemoAPI文档");
+                    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+                })
+                .EnableSwaggerUi();
         }
     }
+   
 }

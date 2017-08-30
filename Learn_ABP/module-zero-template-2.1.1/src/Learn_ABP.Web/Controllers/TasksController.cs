@@ -43,7 +43,6 @@ namespace Learn_ABP.Web.Controllers
             // var data = _cacheManager.GetCache<string, IList<TaskDto>>("ControllerCache").Get("Index", () => _taskAppService.GetAllTasks());
             var data = _taskAppService.GetAllTasks();
             return View(data);
-            
         }
         public ActionResult Update()
         {
